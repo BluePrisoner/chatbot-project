@@ -1,0 +1,41 @@
+.profile-pic-user{
+  width: 45px;
+  margin-right: 10px;
+}
+.profile-pic-robot{
+  width: 45px;
+
+}
+
+.loading-spinner{
+  height: 40px;
+  margin: -15px;
+  padding: 0px 0px;
+}
+
+.chat-msg-user{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: right;
+}
+.chat-msg-robot{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+}
+
+.message{
+
+  max-width: 400px;
+  background-color: rgb(212, 212, 212);
+  margin: 10px 10px;
+  padding: 15px 20px;
+  font-size: 15px;
+  border-radius: 8px;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+

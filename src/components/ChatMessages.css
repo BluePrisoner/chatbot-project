@@ -1,0 +1,12 @@
+.top-message{
+  display: flex;
+  color: rgb(95, 95, 87);
+  justify-content: center;
+}
+
+.chat-messages-container{
+  flex-grow: 1;
+  overflow:scroll;
+  scrollbar-width: none;
+    
+}
