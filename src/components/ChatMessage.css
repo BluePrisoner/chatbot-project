@@ -38,4 +38,22 @@
   white-space: normal;
 }
 
+.display-time{
+  font-weight: 600;
+  font-size: 13px;
+  color: rgb(100, 100, 100);
+  margin: 0px;
+}
+
+.chat-msg-user .display-time {
+  text-align: right;
+}
+
+.chat-msg-robot .display-time {
+  text-align: left;
+}
+
+.msg-text{
+  margin: 0px 0px 5px 0px;
+}
 

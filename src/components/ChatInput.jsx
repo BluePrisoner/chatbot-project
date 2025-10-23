@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Chatbot } from 'supersimpledev';
 
 import './ChatInput.css'
+import dayjs from "dayjs";
 
 
 function ChatInput({setChatMessages,chatMessages}) {
@@ -41,11 +42,15 @@ function ChatInput({setChatMessages,chatMessages}) {
         const response = await Chatbot.getResponseAsync(inputText);
         setLoading(false);
 
+        const milliTime = dayjs().valueOf();
+        const time = dayjs(milliTime).format('h:mma');
+
         setChatMessages(prev =>{
             const updated = [...prev];
             updated[updated.length - 1] = {
                 ...updated[updated.length - 1],
                 message:response,
+                time
             }
             return updated;
         });
@@ -55,12 +60,16 @@ function ChatInput({setChatMessages,chatMessages}) {
 
         
         if(!inputText.trim()) return; // avoid empty input value 
+
+        const milliTime = dayjs().valueOf();
+        const time = dayjs(milliTime).format('h:mma');
         const newChatMessage = [                    //new variable as we cannot send the chatMessages
                                     ...chatMessages,
                                     {
                                         message:inputText,
                                         sender:"user",
-                                        id: crypto.randomUUID()
+                                        id: crypto.randomUUID(),
+                                        time
                                     }
                                 ]
         setChatMessages(newChatMessage);
@@ -69,6 +78,10 @@ function ChatInput({setChatMessages,chatMessages}) {
         
         
         setInputText('');
+    }
+
+    function clearMessage(){
+        setChatMessages([]);
     }
 
     function keyEventHandler(event){
@@ -96,6 +109,7 @@ function ChatInput({setChatMessages,chatMessages}) {
                 ref={inputRef}
             />
             <button onClick={sendMessage} className="send-button" disabled={loading}>Send</button>
+            <button onClick={clearMessage} className="clear-button" disabled={loading}>Clear</button>
         </div>
         
     )

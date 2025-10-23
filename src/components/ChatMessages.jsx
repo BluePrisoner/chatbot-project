@@ -20,6 +20,8 @@ function ChatMessages({chatMessages}){
             useEffect(() => {
                 if (chatMessages.length > 0) {
                     setShowElement(false);
+                }else{
+                    setShowElement(true);
                 }
             }, [chatMessages]); 
 
@@ -39,6 +41,7 @@ function ChatMessages({chatMessages}){
                             <ChatMessage
                                 message = {chatMessage.message}
                                 sender = {chatMessage.sender} 
+                                time = {chatMessage.time}
                                 key = {chatMessage.id}
                             />
                         )
